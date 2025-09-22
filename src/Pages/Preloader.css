@@ -1,0 +1,83 @@
+.preloader {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 9999;
+    transition: opacity 0.6s ease;
+}
+
+
+/* Overlay (white by default) */
+
+.preloader::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: white;
+    transition: opacity 0.5s ease;
+    z-index: 2;
+}
+
+
+/* Hover effect → show video */
+
+.preloader.hovered::before {
+    opacity: 0;
+}
+
+
+/* Background video */
+
+.preloader-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+
+/* Glassmorphism Button */
+
+.enter-btn {
+    padding: 16px 32px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    border: 4px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 3;
+    transition: all 0.3s ease;
+    /* Glass effect */
+    background: rgba(0, 0, 0, 0.35);
+    /* translucent black */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Hover effect for button */
+
+.enter-btn:hover {
+    background: rgba(255, 255, 255, 0.35);
+    /* frosted white */
+    color: black;
+    border-color: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Fade-out effect when leaving */
+
+.preloader.leaving {
+    opacity: 0;
+    pointer-events: none;
+}
